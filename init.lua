@@ -902,6 +902,16 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'ruby',
+  callback = function()
+    vim.lsp.start {
+      name = 'rubocop',
+      cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+    }
+  end,
+})
+
 -- vim.keymap.set('n', '<leader>tt', '<cmd>call RunCurrentSpecFile()<CR>', { desc = '[T]est current file' })
 -- vim.g.rspec_command = 'Dispatch rspec {spec}'
 --vim.g.rspec_command = '!bundle exec rspec --drb {spec}'
