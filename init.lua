@@ -229,6 +229,13 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
+  {
+    'catppuccin/nvim', -- for catppuccin color palettes
+    config = function()
+      vim.cmd 'colorscheme catppuccin-mocha'
+    end,
+  },
+
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
