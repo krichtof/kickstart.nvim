@@ -236,6 +236,24 @@ require('lazy').setup({
     end,
   },
 
+  -- {
+  --   'thoughtbot/vim-rspec',
+  --   config = function() end,
+  -- },
+
+  -- {
+  --   'tpope/vim-dispatch',
+  --   opts = {},
+  --   config = function() end,
+  -- },
+  --
+  {
+    'mogulla3/rspec.nvim',
+    config = function()
+      require('rspec').setup()
+    end,
+  },
+
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
@@ -882,3 +900,7 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- vim.keymap.set('n', '<leader>tt', '<cmd>call RunCurrentSpecFile()<CR>', { desc = '[T]est current file' })
+-- vim.g.rspec_command = 'Dispatch rspec {spec}'
+--vim.g.rspec_command = '!bundle exec rspec --drb {spec}'
