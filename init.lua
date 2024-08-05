@@ -133,21 +133,19 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
+vim.keymap.set('n', '<C-left>', '<C-w>10<', { desc = 'Decrease current window width' })
+vim.keymap.set('n', '<C-right>', '<C-w>10>', { desc = 'Decrease current window width' })
+vim.keymap.set('n', '<C-up>', '<C-w>5+', { desc = 'Increase current window height' })
+vim.keymap.set('n', '<C-down>', '<C-w>5-', { desc = 'Decrease current window height' })
+vim.keymap.set('n', '<S-left>', '<C-w>2<', { desc = 'Decrease current window width' })
+vim.keymap.set('n', '<S-right>', '<C-w>2>', { desc = 'Decrease current window width' })
+vim.keymap.set('n', '<S-up>', '<C-w>1+', { desc = 'Increase current window height' })
+vim.keymap.set('n', '<S-down>', '<C-w>1-', { desc = 'Decrease current window height' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -195,6 +193,8 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
+  { 'christoomey/vim-tmux-navigator', opts = {}, config = function() end },
+  { 'christoomey/vim-tmux-runner', opts = {}, config = function() end },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
